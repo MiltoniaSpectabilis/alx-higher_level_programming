@@ -7,7 +7,7 @@ if number < 0:
 else:
     last_digit = number % 10
 
-output = "The string Last digit of {} is {}".format(number, last_digit)
+output = "Last digit of {} is {}".format(number, last_digit)
 
 if last_digit > 5:
     output += " and is greater than 5"
