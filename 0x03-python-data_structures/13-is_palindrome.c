@@ -5,7 +5,6 @@
  * @head: pointer to the head of the list
  * Return: 1 if the list is a palindrome, 0 otherwise
  */
-
 int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head, *fast = *head, *prev = NULL, *tmp = NULL;
