@@ -20,62 +20,56 @@ readline.parse_and_bind("set show-all-if-ambiguous on")
 
 def push_to_github(files=None, commit_message=None):
     try:
-        if not files:
-            # Running in interactive mode
-            # Ask for the files to push
-            files = input("Enter the file(s) to push (separated by spaces): ").strip()
-
-        # Check if the input is equal to "."
-        if files == ".":
-            # Run the "git add ." command directly
-            exit_code = os.system("git add .")
-            if exit_code != 0:
-                print("Error: Failed to add files to the index.")
-                return
-
-            # Ask for the commit message if not entered
-            if not commit_message:
+        while True:
+            if files is None:
+                # Running in interactive mode
+                # Ask for the files to push
                 while True:
-                    commit_message = input("Enter the commit message: ").strip()
-                    if commit_message:
+                    files = input("Enter the file(s) to push (separated by spaces): ").strip()
+                    if files:
                         break
                     else:
-                        print("Error: No commit message entered.")
+                        print("Error: No file(s) entered. Please try again.")
 
-            # Make the commit
-            os.system(f"git commit -m {shlex.quote(commit_message)}")
+            # Check if the input is equal to "."
+            if files == ".":
+                # Run the "git add ." command directly
+                exit_code = os.system("git add .")
+                if exit_code != 0:
+                    print("Error: Failed to add files to the index.")
+                else:
+                    break
 
-            # Push to GitHub
-            os.system("git push")
-        else:
-            # Split the files into a list using a regular expression
-            files_list = re.findall(r'\".+?\"|\'.+?\'|[^\'\"\s]+', files)
+            else:
+                # Split the files into a list using a regular expression
+                files_list = re.findall(r'\".+?\"|\'.+?\'|[^\'\"\s]+', files)
 
-            # Check if the files exist
-            if not all(os.path.isfile(file) for file in files_list):
-                print("Error: One or more files do not exist. Please try again.")
-                return
-
-            # Ask for the commit message if not entered
-            if not commit_message:
-                while True:
-                    commit_message = input("Enter the commit message: ").strip()
-                    if commit_message:
-                        break
+                # Check if the files exist
+                if not all(os.path.isfile(file) for file in files_list):
+                    print("Error: One or more files do not exist. Please try again.")
+                    files = None
+                else:
+                    # Add the files to the index
+                    exit_code = os.system("git add " + " ".join(files_list))
+                    if exit_code != 0:
+                        print("Error: Failed to add files to the index.")
                     else:
-                        print("Error: No commit message entered.")
+                        break
 
-            # Add the files to the index
-            exit_code = os.system("git add " + " ".join(files_list))
-            if exit_code != 0:
-                print("Error: Failed to add files to the index.")
-                return
+        # Ask for the commit message if not entered
+        if commit_message is None:
+            while True:
+                commit_message = input("Enter the commit message: ").strip()
+                if commit_message:
+                    break
+                else:
+                    print("Error: No commit message entered.")
 
-            # Make the commit
-            os.system(f"git commit -m {shlex.quote(commit_message)}")
+        # Make the commit
+        os.system(f"git commit -m {shlex.quote(commit_message)}")
 
-            # Push to GitHub
-            os.system("git push")
+        # Push to GitHub
+        os.system("git push")
 
     except EOFError:
         signal_handler(signal.SIGINT, None)
@@ -88,3 +82,4 @@ if __name__ == "__main__":
         push_to_github(files, commit_message)
     else:
         push_to_github()
+
