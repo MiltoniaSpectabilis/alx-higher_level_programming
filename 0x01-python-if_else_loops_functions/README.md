@@ -1,1 +1,1 @@
-0x01-python-if_else_loops_functions
+This project focuses on Python, covering topics like if-else statements, loops, and functions.
