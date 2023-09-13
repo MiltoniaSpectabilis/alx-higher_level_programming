@@ -18,6 +18,7 @@ signal.signal(signal.SIGINT, signal_handler)
 # Enable tab autocompletion for file names
 readline.parse_and_bind("set show-all-if-ambiguous on")
 
+
 def push_to_github(files=None, commit_message=None):
     try:
         while True:
@@ -31,12 +32,12 @@ def push_to_github(files=None, commit_message=None):
                     else:
                         print("Error: No file(s) entered. Please try again.")
 
-            # Check if the input is equal to "."
             if files == ".":
                 # Run the "git add ." command directly
                 exit_code = os.system("git add .")
                 if exit_code != 0:
                     print("Error: Failed to add files to the index.")
+                    files = None  # Reset files to prompt again
                 else:
                     break
 
@@ -47,23 +48,28 @@ def push_to_github(files=None, commit_message=None):
                 # Check if the files exist
                 if not all(os.path.isfile(file) for file in files_list):
                     print("Error: One or more files do not exist. Please try again.")
-                    files = None
+                    files = None  # Reset files to prompt again
                 else:
                     # Add the files to the index
                     exit_code = os.system("git add " + " ".join(files_list))
                     if exit_code != 0:
                         print("Error: Failed to add files to the index.")
+                        files = None  # Reset files to prompt again
                     else:
+                        print("Files added to the index.")
                         break
 
-        # Ask for the commit message if not entered
-        if commit_message is None:
-            while True:
+        while True:
+            if commit_message is None:
+                # Ask for the commit message if not entered
                 commit_message = input("Enter the commit message: ").strip()
-                if commit_message:
-                    break
-                else:
+                if not commit_message:
                     print("Error: No commit message entered.")
+                    commit_message = None  # Reset commit_message to prompt again
+                else:
+                    break
+            else:
+                break
 
         # Make the commit
         os.system(f"git commit -m {shlex.quote(commit_message)}")
@@ -73,6 +79,7 @@ def push_to_github(files=None, commit_message=None):
 
     except EOFError:
         signal_handler(signal.SIGINT, None)
+
 
 if __name__ == "__main__":
     # Check if command-line arguments are provided
