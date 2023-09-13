@@ -39,6 +39,7 @@ def push_to_github(files=None, commit_message=None):
                     print("Error: Failed to add files to the index.")
                     files = None  # Reset files to prompt again
                 else:
+                    print("Files added to the index.")
                     break
 
             else:
@@ -56,7 +57,6 @@ def push_to_github(files=None, commit_message=None):
                         print("Error: Failed to add files to the index.")
                         files = None  # Reset files to prompt again
                     else:
-                        print("Files added to the index.")
                         break
 
         while True:
