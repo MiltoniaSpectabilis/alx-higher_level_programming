@@ -2,7 +2,8 @@
 
 
 def multiply_by_2(a_dictionary):
-    new_dictionary = {}
-    for key, value in a_dictionary.items():
-        new_dictionary[key] = value * 2
-    return new_dictionary
+    new_dict = mydictionary.copy()
+    list_keys = list(new_dict.keys())
+    for i in list_keys:
+        new_dict[i] *= 2
+    return (new_dict)
