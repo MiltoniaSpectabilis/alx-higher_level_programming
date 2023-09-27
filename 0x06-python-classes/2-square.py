@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-
 """
 This module defines a Square class.
 
 The Square class represents a square shape and has an attribute for size.
 """
+
 
 class Square:
     """
@@ -30,4 +30,3 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-
