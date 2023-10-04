@@ -1,0 +1,71 @@
+
+Module for my function say_my_name
+
+General properties:
+
+say_my_name says the name you give it, by linking the first name and the last name into a sentence.
+Simple stuff.
+Important note: if you use it 10 times, Heisenberg will come to your house.
+
+:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("Heisen", "Berg")
+    My name is Heisen Berg
+
+exceptional error:
+at least one name must be provided.
+*i might make the first argument Heinseberg though, if the checker likes it.
+
+:
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+let's go on ...
+
+Either name can be compoased of more than 1 word
+:
+
+    >>> say_my_name("Walter White", "Heisen Berg")
+    My name is Walter White Heisen Berg
+
+the 2nd arg is optional. If no last name is provided,
+an empty string is printed instead.
+:
+    >>> say_my_name("Heisenberg", "")
+    My name is Heisenberg
+
+*a space is still necessary, I might add a case where if only one name is provided the formatting changes,
+depending on the checker.
+
+You're goddamn right!
+
+Potential errors:
+
+The args first_name last_name are strings or a TypeError is raised
+
+:
+
+    >>> say_my_name(420, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+:
+
+    >>> say_my_name("Walter", ["three-sixty", "no", "scope"])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+:
+
+    >>> say_my_name({"Walter": 5, "White": 2}, 42069)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+:
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
