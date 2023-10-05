@@ -2,11 +2,14 @@
 
 """Module that contains functions for integer arithmetic"""
 
-
 def add_integer(a, b=98):
-    """Add 2 integers"""
-    if not isinstance(a, (int, float)):
+    """Return the addition of two numbers."""
+    if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if type(b) is not int and type(b) is not float:
         raise TypeError("b must be an integer")
-    return int(a) + int(b)
+    if type(a) is float:
+        a = int(a)
+    if type(b) is float:
+        b = int(b)
+    return a + b
