@@ -3,14 +3,11 @@
 """Module that contains functions for text indentation"""
 
 
-def text_indentation(text):
-    """Print a text with 2 new lines after each '.', '?', and ':'"""
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
-    special_chars = ['.', '?', ':']
-    new_text = ''
-    for char in text:
-        new_text += char
-        if char in special_chars:
-            new_text += '\n\n'
-    print(new_text.strip())
+def print_square(size):
+    """prints a square with "#"'s that has a length of size """
+    if type(size) is not int:
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    if size > 0:
+        print(("#" * size + "\n") * size, end="")
