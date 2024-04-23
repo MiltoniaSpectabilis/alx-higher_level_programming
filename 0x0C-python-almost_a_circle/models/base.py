@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 
-""" Base class """
-
 
 class Base:
     """ Base class """
@@ -10,7 +8,6 @@ class Base:
     def __init__(self, id=None):
 
         """ Initialization of Base class """
-
         if id is not None:
             self.id = id
         else:
