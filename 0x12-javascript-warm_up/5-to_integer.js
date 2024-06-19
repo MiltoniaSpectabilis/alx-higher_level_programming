@@ -1,10 +1,9 @@
 #!/usr/bin/node
 
-if (isNaN(process.argv[2]))
-{
-  console.log('Not a number');
-}
- else
-{
-  console.log('My number: ' + parseInt(process.argv[2]));
+if (process.argv.length === 2) {
+  console.log('No argument');
+} else if (process.argv.length === 3) {
+  console.log('Argument found');
+} else {
+  console.log('Arguments found');
 }
