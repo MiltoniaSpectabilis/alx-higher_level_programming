@@ -1,3 +1,3 @@
 #!/bin/bash
-# this script that takes in a URL, sends a GET request to the URL, and displays the body of the response
-curl -s -o /dev/null -w "%{http_code}\n" "$1"
+# Take in URL, display body of a 200 response; Usage: ./1-body.sh 0.0.0.0:5000/route_1 ; echo ""
+curl -sL "$1"
