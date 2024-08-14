@@ -9,6 +9,15 @@
 
 # Test Cases:
 
+# Test area() method (should raise an exception)
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
+
+# Test integer_validator() with various inputs:
+
 # Valid Integer Input:
 >>> bg.integer_validator("my_int", 12)  # Positive integer
 >>> bg.integer_validator("width", 89)  # Larger positive integer
@@ -33,6 +42,24 @@ value must be an integer
 ...     print(e)
 items must be an integer
 
+>>> try:
+...     bg.integer_validator("age", (4,))  # Tuple
+... except TypeError as e:
+...     print(e)
+age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", {3, 4})  # Set
+... except TypeError as e:
+...     print(e)
+age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", None)  # None
+... except TypeError as e:
+...     print(e)
+age must be an integer
+
 # Invalid Integer Input (Less than or equal to 0):
 >>> try:
 ...     bg.integer_validator("age", 0)  # Zero
@@ -45,3 +72,10 @@ age must be greater than 0
 ... except ValueError as e:
 ...     print(e)
 distance must be greater than 0
+
+# Test integer_validator() with missing value (should raise TypeError)
+>>> try:
+...     bg.integer_validator("age")
+... except TypeError as e:
+...     print("missing 1 required positional argument: 'value'")
+missing 1 required positional argument: 'value'
