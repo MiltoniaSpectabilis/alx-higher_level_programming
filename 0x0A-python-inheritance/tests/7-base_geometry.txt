@@ -1,0 +1,47 @@
+# Test cases for BaseGeometry class and its integer_validator method
+
+# Import the BaseGeometry class dynamically
+>>> module = __import__('7-base_geometry')
+>>> BaseGeometry = module.BaseGeometry
+
+# Create an instance of BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test Cases:
+
+# Valid Integer Input:
+>>> bg.integer_validator("my_int", 12)  # Positive integer
+>>> bg.integer_validator("width", 89)  # Larger positive integer
+>>> bg.integer_validator("height", 1)   # Smallest positive integer
+
+# Invalid Integer Input (Not an Integer):
+>>> try:
+...     bg.integer_validator("name", "John")  # String
+... except TypeError as e:
+...     print(e)
+name must be an integer
+
+>>> try:
+...     bg.integer_validator("value", 3.14)  # Float
+... except TypeError as e:
+...     print(e)
+value must be an integer
+
+>>> try:
+...     bg.integer_validator("items", [1, 2, 3])  # List
+... except TypeError as e:
+...     print(e)
+items must be an integer
+
+# Invalid Integer Input (Less than or equal to 0):
+>>> try:
+...     bg.integer_validator("age", 0)  # Zero
+... except ValueError as e:
+...     print(e)
+age must be greater than 0
+
+>>> try:
+...     bg.integer_validator("distance", -4)  # Negative integer
+... except ValueError as e:
+...     print(e)
+distance must be greater than 0
