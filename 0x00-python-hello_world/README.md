@@ -1,1 +1,1 @@
-Repository for practice projects
+0x00-python-hello_world
