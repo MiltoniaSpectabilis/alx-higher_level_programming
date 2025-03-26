@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def islower(c):
-    char = ord(c)
-    if 97 <= char <= 122:
+    # char = ord(c)
+    if 'a' <= c <= 'z':
         return True
     else:
         return False
