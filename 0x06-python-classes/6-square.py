@@ -7,8 +7,8 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """initialize a Square instance"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -28,8 +28,7 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if not (isinstance(value, tuple) and len(value) == 2
-                and all(isinstance(value, int) and num >= 0 for num in value)):
+        if not isinstance(value, int) and not all(val > 0 for val in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
