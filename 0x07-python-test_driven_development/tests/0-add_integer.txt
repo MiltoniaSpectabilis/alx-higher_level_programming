@@ -11,6 +11,9 @@ A test suite for 0-add_integer.py
 >>> add_integer(4, -8)
 -4
 
+>>> add_integer(1.5, 1.5)
+2
+
 >>> add_integer("x", 5)
 Traceback (most recent call last):
     ...
