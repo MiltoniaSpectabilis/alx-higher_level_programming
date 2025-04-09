@@ -14,6 +14,9 @@ A test suite for 0-add_integer.py
 >>> add_integer(1.5, 1.5)
 2
 
+>>> add_integer(1)
+99
+
 >>> add_integer("x", 5)
 Traceback (most recent call last):
     ...
@@ -28,3 +31,13 @@ TypeError: b must be an integer
 Traceback (most recent call last):
     ...
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+>>> add_integer(0, float(NaN))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(1, float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
