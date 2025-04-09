@@ -32,7 +32,7 @@ Traceback (most recent call last):
     ...
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 
->>> add_integer(0, float(NaN))
+>>> add_integer(0, float('NaN'))
 Traceback (most recent call last):
     ...
 ValueError: cannot convert float NaN to integer
