@@ -1,0 +1,29 @@
+test cases for 3-say_my_name.py
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("Jean", "Baudrillard")
+My name is Jean Baudrillard
+
+>>> say_my_name("Baudrillard")
+My name is Baudrillard
+
+>>> say_my_name(1929)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> say_my_name(1929, "Baudrillard")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Baudrillard", 1929)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+>>> say_my_name(1929, 2007)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
