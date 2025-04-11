@@ -5,7 +5,7 @@ test cases for 3-say_my_name.py
 >>> say_my_name("Jean", "Baudrillard")
 My name is Jean Baudrillard
 
->>> say_my_name("Baudrillard")
+>>> say_my_name("Baudrillard") # doctest: +NORMALIZE_WHITESPACE
 My name is Baudrillard
 
 >>> say_my_name(1929)
