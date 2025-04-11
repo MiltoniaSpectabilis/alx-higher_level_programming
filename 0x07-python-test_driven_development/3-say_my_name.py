@@ -1,6 +1,15 @@
 #!/usr/bin/python3
+"""
+A simple module that prints
+'My name is <first_name> <last_name'
+"""
+
 
 def say_my_name(first_name, last_name=""):
+    """
+    A function that prints
+    'My name is <first_name> <last_name>'
+    """
     if last_name == "" and isinstance(first_name, str):
         print(f"My name is {first_name}")
     elif not isinstance(first_name, str):
@@ -9,3 +18,6 @@ def say_my_name(first_name, last_name=""):
         raise TypeError("last_name must be a string")
     else:
         print(f"My name is {first_name} {last_name}")
+
+
+say_my_name("Bob")
