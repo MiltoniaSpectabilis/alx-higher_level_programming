@@ -5,9 +5,15 @@ max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
+    """unittest class for max_integer"""
+
     def test_postive(self):
         """tests positive ints"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
+
+    def test_one_int(self):
+        """tests one int"""
+        self.assertEqual(max_integer([10]), 10)
 
     def test_mixed(self):
         """tests a mix of positive and negative ints"""
@@ -19,7 +25,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_empty(self):
         """tests empty list"""
-        self.assertEqual(max_integer([]), None)
+        self.assertIsNone(max_integer())
 
     def test_string(self):
         """tests a string"""
