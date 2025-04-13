@@ -15,6 +15,10 @@ class TestMaxInteger(unittest.TestCase):
         """tests one int"""
         self.assertEqual(max_integer([10]), 10)
 
+    def test_postive_middle(self):
+        """tests positive ints"""
+        self.assertEqual(max_integer([1, 2, 5, 3, 4]), 5)
+
     def test_mixed(self):
         """tests a mix of positive and negative ints"""
         self.assertEqual(max_integer([6, -2, 0, -3]), 6)
