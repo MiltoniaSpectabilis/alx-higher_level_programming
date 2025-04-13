@@ -10,6 +10,8 @@ def say_my_name(first_name, last_name=""):
     A function that prints
     'My name is <first_name> <last_name>'
     """
+    # uncomment this if you dont want
+    # a trailing whitespace when one str is passed
     # if not last_name and isinstance(first_name, str):
     #     print(f"My name is {first_name}")
     if not isinstance(first_name, str):
