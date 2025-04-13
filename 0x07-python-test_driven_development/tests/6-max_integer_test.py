@@ -30,3 +30,7 @@ class TestMaxInteger(unittest.TestCase):
         """tests a list with mixed types"""
         with self.assertRaises(TypeError):
             max_integer([1, 2, 'A', 3])
+
+
+if __name__ == '__main__':
+    unittest.main()
