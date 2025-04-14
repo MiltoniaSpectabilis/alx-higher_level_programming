@@ -48,11 +48,3 @@ class Rectangle:
             return 0
         else:
             return 2 * (self.__height + self.__width)
-
-
-my_rec = Rectangle(2, 4)
-print(f"Area: {my_rec.area()} - Perimeter: {my_rec.perimeter()}")
-print("--")
-my_rec.width = 10
-my_rec.height = 3
-print(f"Area: {my_rec.area()} - Perimeter: {my_rec.perimeter()}")
