@@ -52,7 +52,7 @@ class Rectangle:
     def __str__(self):
         """returns a representation of a rectangle with '#'"""
         rec = ""
-        if self.width != 0 or self.height:
+        if self.width != 0 or self.height != 0:
             for _ in range(self.height):
                 row = "#" * self.width
                 rec += row
