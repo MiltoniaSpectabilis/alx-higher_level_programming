@@ -52,15 +52,15 @@ class Rectangle:
     def __str__(self):
         """returns a representation of a rectangle with '#'"""
         rec = ""
-        if self.width != 0 or self.height != 0:
+        if self.width == 0 or self.height == 0:
+            return rec
+        else:
             for _ in range(self.height):
                 row = "#" * self.width
                 rec += row
                 if _ < self.height - 1:
                     rec += '\n'
             return rec
-        else:
-            return ""
 
 
 if __name__ == "__main__":
@@ -73,4 +73,6 @@ if __name__ == "__main__":
     print(str(my_rec))
     my_rec.width = 1
     my_rec.height = 1
+    print(str(my_rec))
+    my_rec = Rectangle(0, 0)
     print(str(my_rec))
