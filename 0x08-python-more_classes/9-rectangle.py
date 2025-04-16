@@ -10,6 +10,9 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        """
+        returns a rectangle instance with equal height and width (a square)
+        """
         return cls(size, size)
 
     @staticmethod
@@ -94,7 +97,8 @@ class Rectangle:
 
 if __name__ == "__main__":
     my_square = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+    print("Area: {} - Perimeter: {}".format(
+        my_square.area(), my_square.perimeter()))
     print(my_square)
     # my_rectangle_1 = Rectangle(8, 4)
     # my_rectangle_2 = Rectangle(2, 3)
