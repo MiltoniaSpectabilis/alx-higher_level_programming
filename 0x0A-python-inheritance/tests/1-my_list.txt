@@ -18,6 +18,9 @@ test cases for 1-my_list.py
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
 
+>>> print(my_list)
+[1, 5, 4, 2, 3]
+
 >>> my_list = MyList([-1, -5, -4, -2, -3])
 
 >>> my_list.print_sorted()
