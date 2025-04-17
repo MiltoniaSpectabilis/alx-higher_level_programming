@@ -7,7 +7,7 @@ or if it is an instance of a subclass of, a specified class.
 
 def is_kind_of_class(obj, a_class):
     """
-    checks if an object is an instance of, or if it is an instance
-    of a subclass of, a specified class.
+    returns True if obj is an instance of, or if is
+    an instance of a subclass of, a specified class.
     """
-    return True if isinstance(obj, a_class) else False
+    return isinstance(obj, a_class)
