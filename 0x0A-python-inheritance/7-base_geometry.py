@@ -18,13 +18,22 @@ class BaseGeometry:
 if __name__ == '__main__':
     bg = BaseGeometry()
     bg.integer_validator("hamid", 12)
+    try:
+        bg.area()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
     try:
-        bg.integer_validator("hamid", "zahir")
+        bg.integer_validator("name", "John")
     except Exception as e:
-        print(f"{e}")
+        print("[{}] {}".format(e.__class__.__name__, e))
 
     try:
         bg.integer_validator("age", 0)
     except Exception as e:
-        print(f"{e}")
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        bg.integer_validator("distance", -4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
