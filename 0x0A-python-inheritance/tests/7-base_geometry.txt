@@ -52,6 +52,9 @@ Traceback (most recent call last):
 TypeError: Baudrillard must be an integer
 
 >>> bg.integer_validator("Baudrillard", True)
+Traceback (most recent call last):
+    ...
+TypeError: Baudrillard must be an integer
 
 >>> bg.integer_validator("Baudrillard", {1929})
 Traceback (most recent call last):
