@@ -27,3 +27,6 @@ test cases for 1-my_list.py
 
 >>> my_list.print_sorted()
 []
+
+>>> print(isinstance(my_list, list))
+True
