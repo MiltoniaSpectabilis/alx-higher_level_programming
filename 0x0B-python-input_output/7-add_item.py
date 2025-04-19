@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-This module takes arguments, stores them in a list
-and then serializes it.
-"""
+"""This module takes arguments, stores them in a list and then serializes it"""
 
 from sys import argv
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
