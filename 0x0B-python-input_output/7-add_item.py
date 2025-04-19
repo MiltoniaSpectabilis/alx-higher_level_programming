@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module takes arguments, stores them in a list
-and then serializes it
+and then serializes it.
 """
 
 from sys import argv
