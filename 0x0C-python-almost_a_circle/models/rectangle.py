@@ -2,7 +2,7 @@
 """
 Defines the Rectangle class, inheriting from Base.
 """
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -84,10 +84,20 @@ class Rectangle(Base):
 
     def display(self):
         """Prints a representation of the rectangle"""
+        for _ in range(self.y):
+            print(" ")
         for _ in range(self.height):
+            print(" " * self.x, end='')
             print("#" * self.width)
 
     def __str__(self):
         """Returns a string representation of the rectangle"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
+
+
+rec = Rectangle(2, 3, 2, 2)
+rec.display()
+print("---")
+another_rec = Rectangle(3, 2, 1, 0)
+another_rec.display()
