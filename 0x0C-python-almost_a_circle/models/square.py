@@ -26,12 +26,29 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """Gets the size of """
         return self.width
 
     @size.setter
     def size(self, size):
+        """"""
         self.width = size
         self.height = size
+
+    def update(self, *args, **kwargs):
+        """"""
+        if args:
+            attr_names = [
+                "id",
+                "size",
+                "x",
+                "y"
+            ]
+            for attr_name, arg in zip(attr_names, args):
+                setattr(self, attr_name, arg)
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def __str__(self):
         """
