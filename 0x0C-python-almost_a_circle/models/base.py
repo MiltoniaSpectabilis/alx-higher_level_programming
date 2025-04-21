@@ -54,6 +54,15 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """
+        Returns a deserialized list of a JSON string representation
+        """
         if json_string is None or not json_string:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        dummy = cls(1, 2)
+        dummy.update(**dictionary)
+        return dummy
