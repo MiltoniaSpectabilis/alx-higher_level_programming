@@ -2,7 +2,7 @@
 """
 Defines the Rectangle class, inheriting from Base.
 """
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -81,3 +81,8 @@ class Rectangle(Base):
     def area(self):
         """Returns the area of the rectangle"""
         return self.width * self.height
+
+    def display(self):
+        """Prints a representation of the rectangle"""
+        for _ in range(self.height):
+            print("#" * self.width)
