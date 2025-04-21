@@ -2,7 +2,7 @@
 """
 Defines the Rectangle class, inheriting from Base.
 """
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -94,3 +94,15 @@ class Rectangle(Base):
         """Returns a string representation of the rectangle"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
+
+    def update(self, *args):
+        """Updates the instance's attributes"""
+        attrs = [
+            "id",
+            "width",
+            "height",
+            "x",
+            "y"
+        ]
+        for attr_name, arg in zip(attrs, args):
+            setattr(self, attr_name, arg)
