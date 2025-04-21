@@ -3,6 +3,8 @@
 This module creates a Base class for managing object IDs
 """
 
+import json
+
 
 class Base:
     """
@@ -25,3 +27,12 @@ class Base:
         else:
             self.__class__.__nb_objects += 1
             self.id = self.__class__.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+
+        """
+        if list_dictionaries or list_dictionaries is not None:
+            json_string = json.dumps(list_dictionaries)
+            return json_string
