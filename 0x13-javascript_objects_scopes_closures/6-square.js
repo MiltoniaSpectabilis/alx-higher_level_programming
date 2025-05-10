@@ -13,8 +13,18 @@ class Square extends SquareBase {
       c = 'X';
     }
     for (let i = 0; i < this.size; i++) {
-      process.stdout.write(c.repeat(this.size) + '\n');
+      for (let j = 0; j < this.size; j++) {
+        process.stdout.write(c);
+      }
+      process.stdout.write('\n');
     }
+  }
+
+  /* i'm commenting this out as a learning note:
+  i spent about 20 mins trying
+  to figure out why the output wasn't doubling ='( */
+  double () {
+    this.size *= 2;
   }
 }
 
