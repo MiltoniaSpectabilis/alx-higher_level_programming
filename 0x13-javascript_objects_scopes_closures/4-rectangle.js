@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 class Rectangle {
-  constructor(w, h) {
+  constructor (w, h) {
     if (
       Number.isInteger(w) &&
       Number.isInteger(h) &&
@@ -13,19 +13,19 @@ class Rectangle {
     }
   }
 
-  rotate() {
+  rotate () {
     let temp = null;
     temp = this.width;
     this.width = this.height;
     this.height = temp;
   }
 
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
 
-  print() {
+  print () {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         process.stdout.write('X');
