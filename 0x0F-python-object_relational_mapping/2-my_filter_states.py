@@ -20,15 +20,14 @@ if __name__ == "__main__":
         passwd=password,
         db=database
     )
-
     cursor = connection.cursor()
     cursor.execute(
-        f"""
+        """
         SELECT *
         FROM states
-        WHERE name = '{state_name}'
+        WHERE name = '{}'
         ORDER BY states.id ASC
-        """
+        """.format(state_name)
     )
     for row in cursor.fetchall():
         print(row)
