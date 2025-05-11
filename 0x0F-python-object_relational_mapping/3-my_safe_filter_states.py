@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-
+"""This module prints a state while being immune to sql injections
 """
 
 from MySQLdb import connect
