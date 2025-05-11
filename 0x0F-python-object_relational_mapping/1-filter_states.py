@@ -19,7 +19,9 @@ if __name__ == "__main__":
     )
     cursor = connection.cursor()
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+        """
+        SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC
+        """)
     for row in cursor.fetchall():
         print(row)
     cursor.close()
