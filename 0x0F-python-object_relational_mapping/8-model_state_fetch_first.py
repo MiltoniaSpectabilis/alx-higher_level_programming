@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module lists the first state from
+a specified db
+"""
 
 from sys import argv
 from sqlalchemy import create_engine
