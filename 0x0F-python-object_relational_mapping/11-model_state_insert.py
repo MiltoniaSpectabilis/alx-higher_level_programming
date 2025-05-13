@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module adds a new state to the db
+"""
 
 from sys import argv
 from model_state import Base, State
