@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
-
+This module prints all lists states from
+a specified db using sqlalchemy
 """
 
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+from model_state import Base, State  # noqa
 
 
 if __name__ == "__main__":
