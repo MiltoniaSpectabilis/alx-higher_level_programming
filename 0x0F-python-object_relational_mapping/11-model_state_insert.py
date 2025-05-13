@@ -26,3 +26,5 @@ if __name__ == "__main__":
 
     state = session.query(State).filter(State.name == "Louisiana").first()
     print(state.id)
+
+    session.close()
