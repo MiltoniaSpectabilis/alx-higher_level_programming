@@ -5,6 +5,7 @@ This module contains the City class definition using SQLAlchemy
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -29,3 +30,4 @@ class City(Base):
         ForeignKey('states.id'),
         nullable=False
     )
+    state = relationship("State", backref="cities")
